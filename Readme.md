@@ -69,8 +69,7 @@ Common errors:
 
 
 # Created function to fetch data :- In fetchFearGreed.js file
-# Inside Index.js file cal fetchFearGreed.js file and loading data.
+# Inside Index.js file  fetchFearGreed.js file and loading data.
 
 # Run :- npm start -- to fetch data.
 
-# response.

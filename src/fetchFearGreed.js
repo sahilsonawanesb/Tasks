@@ -1,8 +1,4 @@
 import axios from "axios";
-
-
-
-
 const API_URL = "https://pro-api.coinmarketcap.com/v3/fear-and-greed/historical";
 
 
