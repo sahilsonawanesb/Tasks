@@ -4,7 +4,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node --loader ts-node/esm src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,5 +15,12 @@
     "axios": "^1.13.2",
     "dotenv": "^17.2.3",
     "json2csv": "^6.0.0-alpha.2"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.9.36",
+    "@types/json2csv": "^5.0.7",
+    "@types/node": "^25.0.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }
