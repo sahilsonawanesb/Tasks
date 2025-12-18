@@ -26,21 +26,21 @@ dotenv.config();
 // })();
 
 
-// TypeScript Main function.
-async function main(): Promise<void> {
-  try {
-    const data = await fetchFearGreed(30);
-    if (!data) return;
+// // TypeScript Main function.
+// async function main(): Promise<void> {
+//   try {
+//     const data = await fetchFearGreed(30);
+//     if (!data) return;
 
-    console.log("Fetched data:", data);
+//     console.log("Fetched data:", data);
 
-    storeData(data);
-    storeDataCSV(data);
+//     storeData(data);
+//     storeDataCSV(data);
 
-    console.log("Fear and Greed data stored successfully");
-  } catch (error: any) {
-    console.error("Unhandled error in main():", error.message || error);
-  }
-}
+//     console.log("Fear and Greed data stored successfully");
+//   } catch (error: any) {
+//     console.error("Unhandled error in main():", error.message || error);
+//   }
+// }
 
-main();
+// main();
