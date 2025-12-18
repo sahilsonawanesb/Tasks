@@ -1,6 +1,6 @@
-import { getDataByDate } from "./services/getDataByDate.js";
-import { getDataByDays } from "./services/getDataByDays.js";
-import { getDataByRange } from "./services/getDataByRange.js";
+import { getDataByDateCSV } from "./services/getDataByDate.js";
+import { getDataByDaysCSV } from "./services/getDataByDays.js";
+import { getDataByRangeCSV } from "./services/getDataByRange.js";
 import dotenv from "dotenv";
 import path from "path";
 
@@ -8,20 +8,20 @@ dotenv.config({
   path: path.resolve(process.cwd(), "../../.env")
 });
 
-// test functions to fetch data..
+const filePath = "./data/fear_greed.csv";
 
 (async () => {
 
     console.log("Last 7 days");
-    const last7days = await getDataByDays(7);
+    const last7days = await getDataByDaysCSV(7, filePath, true); 
     console.log(last7days);
 
     console.log("Specific Date");
-    const specificDate = await getDataByDate("2025-12-10");
+    const specificDate = await getDataByDateCSV("2025-12-10", filePath, true); 
     console.log(specificDate);
 
     console.log("Date by range");
-    const rangeDate = await getDataByRange("2025-12-10", "2025-12-15");
+    const rangeDate = await getDataByRangeCSV("2025-12-10", "2025-12-15", filePath, true); 
     console.log(rangeDate);
 
 })();

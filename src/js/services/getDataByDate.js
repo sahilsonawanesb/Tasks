@@ -1,26 +1,29 @@
-import { fetchFearGreed } from "../api/fetchFearGreed.js";
 
+import { readCSV } from "../utils/readCsv.js";
+import { exportFilteredCSV } from "../utils/exportCsv.js";
 
-// functions getDataByDate :- 
-export async function getDataByDate(date) {
-    try{
-
-        const getAllData = await fetchFearGreed(100);
-
-
+export async function getDataByDateCSV(date, filePath) {
+  try {
+    const getAllData = await readCSV(filePath);
     if (!getAllData) return null;
 
     const targetDate = new Date(date);
     targetDate.setHours(0, 0, 0, 0);
 
-    return getAllData.find(item => {
-        const itemDate = new Date(Number(item.timestamp) * 1000);
-        itemDate.setHours(0, 0, 0, 0);
-        return itemDate.getTime() === targetDate.getTime();
-    }) || null;
+    const filteredData = getAllData.filter(item => {
+      const itemDate = new Date(Number(item.timestamp) * 1000);
+      itemDate.setHours(0, 0, 0, 0);
+      return itemDate.getTime() === targetDate.getTime();
+    });
 
-    }catch(error){
-        console.log(error.message);
-    }
+    filteredData.forEach(item => (item.fetch_type = `specific_date_${date}`));
+
+    const fileName = `specific_date_${date}.csv`;
+    exportFilteredCSV(filteredData, fileName);
+
+    return filteredData[0] || null;
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 

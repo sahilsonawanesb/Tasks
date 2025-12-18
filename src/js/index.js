@@ -1,6 +1,8 @@
 import { fetchFearGreed } from "./api/fetchFearGreed.js";
+import { storeDataCSV } from "./utils/storeCsvData.js";
 import dotenv from "dotenv";
 import path from "path";
+
 
 dotenv.config({
   path: path.resolve(process.cwd(), "../../.env")
@@ -15,6 +17,8 @@ dotenv.config({
             console.log("No data fetched");
             return;
         }
+
+        storeDataCSV(data, "all_data");
         console.log("Fear and Greed data fetch successfully");
         console.log(data);
 
