@@ -2,6 +2,9 @@
 import { readCSV } from "../utils/readCsv.js";
 import { exportFilteredCSV } from "../utils/exportCsv.js";
 
+
+const SINGLE_CSV_FILE = "fear_greed_all.csv";
+
 export async function getDataByDateCSV(date, filePath) {
   try {
     const getAllData = await readCSV(filePath);
@@ -18,12 +21,16 @@ export async function getDataByDateCSV(date, filePath) {
 
     filteredData.forEach(item => (item.fetch_type = `specific_date_${date}`));
 
-    const fileName = `specific_date_${date}.csv`;
-    exportFilteredCSV(filteredData, fileName);
+  
+    exportFilteredCSV(filteredData, SINGLE_CSV_FILE);
 
     return filteredData[0] || null;
   } catch (error) {
     console.log(error.message);
   }
 }
+
+
+
+
 
