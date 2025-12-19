@@ -1,4 +1,5 @@
 import { fetchFearGreed } from "./api/fetchFearGreed.js";
+import { storeDataCSV } from "./utils/storeCsvData.js";
 import dotenv from "dotenv";
 import path from "path";
 
@@ -15,7 +16,12 @@ async function main() : Promise<void>{
         const data = await fetchFearGreed(100);
         if(!data) return;
 
+
+        // store data
+        storeDataCSV(data, "daily_fetch");
+
         console.log("Fetched data", data);
+        console.log("Fear Greed data fetch successfully");
 
 
     }catch(error:any){
