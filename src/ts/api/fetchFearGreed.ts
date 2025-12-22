@@ -18,6 +18,8 @@ export async function fetchFearGreed(limit = 30): Promise<FearGreedRecord[] | nu
       params: { limit },
     });
 
+    
+
     return response.data.data; 
   } catch (error: any) {
     console.error("Error fetching data:", error.message);

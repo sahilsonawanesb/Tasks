@@ -81,12 +81,31 @@ if(marks >= 21){
 }
 
 // Type Narrowing : very important..
-let res : number | string  = 10;
+// let res : number | string  = 10;
 
-if(typeof res === "number"){
-    console.log(res+10);
-}else{
-    console.log(res.toUpperCase());
+// if(typeof res === "number"){
+//     console.log(res+10);
+// }else{
+//     console.log(res.toUpperCase());
+// }
+
+
+// Practice 3:- Write TypeScript Code as follows..
+// Write TypeScript code for:
+// Check even or odd
+
+let isEven = false;
+let num = 7;
+
+if(num % 2 === 0){
+    isEven = true;
 }
 
+if(isEven){
+    conso
+}
+
+// Check voting eligibility
+
+// Accept number | string and print correctly
 
